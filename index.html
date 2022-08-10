@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="hero">
+        <h3>Chao,</h3>
+        <h1>Cung khong co gi de noi ca<br>cam on da vao day...</h1>
+        <p>Neu muon hay viet cho t thu gi do :)</p>
+        <form name="submit-to-google-sheet">
+            <input type="text" name="Email" placeholder="viet vao day ... " required>
+            <button type="submit"> <img src="media/send-icon.png" width="30px"> </button>
+        </form>
+        <span>hehe, tui khong biet nguoi gui la ai dau </span>
+        <span id="msg"></span>
+
+    </div>
+    
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbwv6Xouv-1qQ0fvo2qxlfSVMSOQ5huA2ACUVaPx-nDWP8_VRUT--u2I-ZQJ99yyI_sX_w/exec'
+        const form = document.forms['submit-to-google-sheet']
+        const msg = document.getElementById("msg")
+      
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => {
+                msg.innerHTML = "Tin nhan cua ban da duoc gui cho Duong Dinh Tap rui, cam onnnnnnnn..."
+                setTimeout(function(){
+                    msg.innerHTML = ""
+                },5000)
+                form.reset()
+            })
+            .catch(error => console.error('Error!', error.message))
+        })
+      </script>
+
+
+</body>
+</html>
