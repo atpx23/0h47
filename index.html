@@ -9,11 +9,9 @@
 </head>
 <body>
     <div class="hero">
-        <h3>Chao,</h3>
-        <h1>Cam on da den.</h1>
-        <p>Neu muon hay viet cho t thu gi do :)</p>
+        <h1>write somthing to me:</h1>
         <form name="submit-to-google-sheet">
-            <input type="text" name="Email" placeholder="viet vao day ... " required>
+            <input type="text" name="Email" placeholder="tap here ..." required>
             <button type="submit"> <img src="media/send-icon.png" width="30px"> </button>
         </form>
         <span id="msg"></span>
@@ -29,7 +27,7 @@
           e.preventDefault()
           fetch(scriptURL, { method: 'POST', body: new FormData(form)})
             .then(response => {
-                msg.innerHTML = "Tin nhan cua ban da duoc gui cho Duong Dinh Tap rui, cam onnnnnnnn..."
+                msg.innerHTML = "Success!"
                 setTimeout(function(){
                     msg.innerHTML = ""
                 },5000)
